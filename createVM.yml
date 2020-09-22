@@ -8,16 +8,16 @@
       hostname: "{{lookup('env', 'VMWARE_HOST')}}"
       username: "{{lookup('env', 'VMWARE_USER')}}"
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
-      datacenter: DC
+      datacenter: Datacenter-test01
       cluster: CL
       name: "{{vmname}}{{item}}"
-      folder: /DC/vm
+      folder: /Datacenter-test01/vm
       template: "{{template}}"
       networks:
       - name: VM Network
         type: dhcp
       state: poweredon
-      datastore: "{{ datastore_name }}"
+      datastore: datastore1
       validate_certs: no
     with_sequence: count={{number|int - 1}}
 
@@ -26,16 +26,16 @@
       hostname: "{{lookup('env', 'VMWARE_HOST')}}"
       username: "{{lookup('env', 'VMWARE_USER')}}"
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
-      datacenter: DC
+      datacenter: Datacenter-test01
       cluster: CL
       name: "{{vmname}}{{number}}"
-      folder: /DC/vm
+      folder: /Datacenter-test01/vm
       template: "{{template}}"
       networks:
       - name: VM Network
         type: dhcp
       state: poweredon
-      datastore: "{{ datastore_name }}"
+      datastore: datastore1
       validate_certs: no
       wait_for_ip_address: yes
 #      wait_for_customization: yes
