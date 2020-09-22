@@ -26,5 +26,5 @@
       networks:
       - name: VM Network
         start_connected: true
-      delegate_to: localhost
       wait_for_ip_address: yes
+    delegate_to: localhost
