@@ -1,17 +1,17 @@
 ---
 - name: Create a VM from a template
-  hosts: localhost
+  hosts: local 
   gather_facts: false
   tasks:
   - name: Create a virtual machine on given ESXi hostname
     vmware_guest:
+      name: "{{ vmname }}"
       hostname: "{{lookup('env', 'VMWARE_HOST')}}"
       username: "{{lookup('env', 'VMWARE_USER')}}"
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
-      name: "{{ vmname }}"
+      datacenter: "{{ datacenter_name }}"
       folder: "{{ foloder_name }}"
       validate_certs: false
-      datacenter: "{{ datacenter_name }}"
       template: "{{ template_name }}"
       state: poweredon
       esxi_hostname: "{{ esxi_hostname }}"
@@ -27,4 +27,10 @@
       - name: VM Network
         start_connected: true
       wait_for_ip_address: yes
+      customization:
+        hostname: test1
     delegate_to: localhost
+    register: vm_info
+
+  - debug:
+      var: vm_info
