@@ -1,0 +1,41 @@
+---
+- name: Create a VM from a template
+  hosts: localhost
+  gather_facts: false
+  tasks:
+  - name: Create a virtual machine on given ESXi hostname
+    vmware_guest:
+      name: "{{ vmname }}"
+      hostname: "{{lookup('env', 'VMWARE_HOST')}}"
+      username: "{{lookup('env', 'VMWARE_USER')}}"
+      password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
+      datacenter: "{{ datacenter_name }}"
+      folder: "{{ foloder_name }}"
+      validate_certs: false
+      template: "{{ template_name }}"
+      state: poweredon
+      esxi_hostname: "{{ esxi_hostname }}"
+      disk:
+      - size_gb: 20
+        type: thin
+        datastore: "{{ datastore_name }}" 
+      hardware:
+        memory_mb: 2048
+        num_cpus: 2
+        scsi: paravirtual
+      networks:
+      - name: VM Network
+        start_connected: true
+        type: static
+        ip: "{{ ipaddress }}"
+        netmask: "{{ netmask }}"
+        gateway: "{{ gateway }}"
+        dns_servers: "{{ dns_address }}"
+      wait_for_ip_address: yes
+      customization:
+        hostname: "{{ vm_hostname }}"
+    delegate_to: localhost
+    register: vm_info
+
+  - debug:
+      var: vm_info
