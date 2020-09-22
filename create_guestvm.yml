@@ -8,13 +8,13 @@
       hostname: "{{lookup('env', 'VMWARE_HOST')}}"
       username: "{{lookup('env', 'VMWARE_USER')}}"
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
-      datacenter: "{{ datacenter_name }}"
-      name: "{{vmname}}{{item}}"
+      name: "{{ vmname }}"
       folder: "{{ foloder_name }}"
-      template: "{{ template_name }}"
-#      esxi_hostname: "{{ esxi_hostname }}"
       validate_certs: false
+      datacenter: "{{ datacenter_name }}"
+      template: "{{ template_name }}"
       state: poweredon
+      esxi_hostname: "{{ esxi_hostname }}"
       disk:
       - size_gb: 20
         type: thin
@@ -26,7 +26,5 @@
       networks:
       - name: VM Network
         start_connected: true
+      delegate_to: localhost
       wait_for_ip_address: yes
-      customization:
-        hostname: test1
-    with_sequence: count={{number|int - 1}}
