@@ -17,7 +17,7 @@
       - name: VM Network
         type: dhcp
       state: poweredon
-      datastore: NFS
+      datastore: "{{ datastore_name }}"
       validate_certs: no
     with_sequence: count={{number|int - 1}}
 
@@ -35,7 +35,7 @@
       - name: VM Network
         type: dhcp
       state: poweredon
-      datastore: NFS
+      datastore: "{{ datastore_name }}"
       validate_certs: no
       wait_for_ip_address: yes
 #      wait_for_customization: yes
