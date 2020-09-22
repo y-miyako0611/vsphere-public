@@ -9,7 +9,7 @@
       username: "{{lookup('env', 'VMWARE_USER')}}"
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
       datacenter: Datacenter-test01
-      cluster: CL
+#      cluster: CL
       name: "{{vmname}}{{item}}"
       folder: /Datacenter-test01/vm
       template: "{{template}}"
@@ -27,7 +27,7 @@
       username: "{{lookup('env', 'VMWARE_USER')}}"
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
       datacenter: Datacenter-test01
-      cluster: CL
+#      cluster: CL
       name: "{{vmname}}{{number}}"
       folder: /Datacenter-test01/vm
       template: "{{template}}"
