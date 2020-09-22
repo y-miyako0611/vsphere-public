@@ -1,0 +1,30 @@
+- hosts: local
+  gather_facts: false
+  tasks:
+  - name: Create a virtual machine on given ESXi hostname
+    vmware_guest:
+      hostname: "{{lookup('env', 'VMWARE_HOST')}}"
+      username: "{{lookup('env', 'VMWARE_USER')}}"
+      password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
+      datacenter: "{{ datacenter_name }}"
+      name: "{{vmname}}{{item}}"
+      folder: "{{ foloder_name }}"
+      template: "{{ template_name }}"
+      esxi_hostname: "{{ esxi_hostname }}"
+      validate_certs: false
+      disk:
+      - size_gb: 20
+        type: thin
+        datastore: "{{ datastore_name }}" 
+      hardware:
+        memory_mb: 2048
+        num_cpus: 2
+        scsi: paravirtual
+      networks:
+      - name: VM Network
+        start_connected: true
+      wait_for_ip_address: yes
+      customization:
+        hostname: test1
+    delegate_to: localhost
+    with_sequence: count={{number|int - 1}}
