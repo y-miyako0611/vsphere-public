@@ -12,7 +12,7 @@
       name: "{{vmname}}{{item}}"
       folder: "{{ foloder_name }}"
       template: "{{ template_name }}"
-      esxi_hostname: "{{ esxi_hostname }}"
+#      esxi_hostname: "{{ esxi_hostname }}"
       validate_certs: false
       state: poweredon
       disk:
