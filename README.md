@@ -1,5 +1,7 @@
 # vsphere-public
-ここを参考にしたやつ。https://github.com/hiro52/tower-demo
+ここを参考にしたやつ。
+* https://github.com/hiro52/tower-demo
+* https://qiita.com/chataro0/items/4276985a67b531fb32b0
 
 # メモ
 
