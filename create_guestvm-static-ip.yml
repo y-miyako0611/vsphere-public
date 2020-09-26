@@ -20,8 +20,8 @@
         type: thin
         datastore: "{{ datastore_name }}" 
       hardware:
-        memory_mb: 2048
-        num_cpus: 2
+        memory_mb: "{{ memory_mb_number }}"
+        num_cpus: "{{ cpu_number }}"
         scsi: paravirtual
       networks:
       - name: VM Network
