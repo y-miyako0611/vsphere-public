@@ -2,6 +2,8 @@
 - name: Tag Control for VM
   hosts: localhost 
   gather_facts: no
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Manage VM Tag
       vmware_tag_manager:
