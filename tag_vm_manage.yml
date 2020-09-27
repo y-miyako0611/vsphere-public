@@ -1,6 +1,6 @@
 ---
 - name: Tag Control for VM
-  hosts: all 
+  hosts: localhost 
   gather_facts: no
   tasks:
     - name: Manage VM Tag
