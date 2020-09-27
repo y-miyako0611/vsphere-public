@@ -10,6 +10,7 @@
         password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
         validate_certs: False
         tag_names: New_VM
-        object_name: " {{vmname}} "
+        object_name: "{{ vmname }}"
         object_type: VirtualMachine
-        state: "{{tag_state}}"
+        state: "{{ tag_state }}"
+      delegate_to: localhost
