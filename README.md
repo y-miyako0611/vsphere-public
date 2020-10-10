@@ -8,3 +8,10 @@
 
 ## create_guestvm-static-ip.yml
 任意のIPアドレスを設定できる。ただし、DNSはWindowsのみ対応くさい。
+
+
+## hostsの指定について(awx利用時)
+プレイブック内のhostsに「localhost」を指定すると一部のプラグインで動作しないことがある。(vmwaer_tag_hogehogeが動かなかった)  
+awxよくわからんが「localhost」を指定するとawx(docker)でプレイブック実行している？ので、  
+ここで動作しているansible/もしくはpythonのバージョンに依存したりするのかと。  
+なのでhostsにはホストサーバのIPを直接指定すれば問題なく動作した。
