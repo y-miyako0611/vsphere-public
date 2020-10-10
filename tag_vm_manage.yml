@@ -9,7 +9,8 @@
         username: "{{lookup('env', 'VMWARE_USER')}}"
         password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
         validate_certs: False
-        tag_names: New_VM
+        tag_names: 
+          - New_VM
         object_name: "{{ vmname }}"
         object_type: VirtualMachine
         state: "{{ tag_state }}"
