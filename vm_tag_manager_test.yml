@@ -1,0 +1,21 @@
+---
+- name: Tag Control for VM
+  hosts: localhost 
+  gather_facts: no
+  tasks:
+    - name: Manage VM Tag test
+      vmware_tag_manager:
+        hostname: "{{lookup('env', 'VMWARE_HOST')}}"
+        username: "{{lookup('env', 'VMWARE_USER')}}"
+        password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
+        validate_certs: False
+        tag_names: 
+          - New_VM
+        object_name: "{{ vmname }}"
+        object_type: VirtualMachine
+        state: "{{ tag_state }}"
+      delegate_to: localhost
+      register: vm_info
+      
+    - debug:
+        var: vm_info
