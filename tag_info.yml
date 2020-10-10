@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: Info VM Tag
-      vmware_tag_manager:
+      vmware_tag_info:
         hostname: "{{lookup('env', 'VMWARE_HOST')}}"
         username: "{{lookup('env', 'VMWARE_USER')}}"
         password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
