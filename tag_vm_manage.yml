@@ -3,7 +3,7 @@
   hosts: localhost 
   gather_facts: no
   tasks:
-    - name: Manage VM Tag
+    - name: Manage VM Tag test
       vmware_tag_manager:
         hostname: "{{lookup('env', 'VMWARE_HOST')}}"
         username: "{{lookup('env', 'VMWARE_USER')}}"
