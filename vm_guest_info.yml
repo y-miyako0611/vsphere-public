@@ -10,6 +10,7 @@
         password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
         datacenter: "{{ datacenter_name }}"
         folder: "{{ foloder_name }}"
+        name: "{{ vm_name }}"
         validate_certs: False
       delegate_to: localhost
       register: vm_info
