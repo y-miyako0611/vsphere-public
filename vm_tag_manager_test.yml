@@ -1,6 +1,5 @@
 ---
 - name: Tag Control for VM
-  hosts: awx
   gather_facts: no
   tasks:
     - name: Manage VM Tag test
