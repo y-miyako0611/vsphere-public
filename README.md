@@ -17,9 +17,4 @@ awxよくわからんが「localhost」を指定するとawx(docker)でプレイ
 なのでhostsにはホストサーバのIPを直接指定すれば問題なく動作した。
 ### その後追加
 localhostでもいける方法について。awxインベントリツリー内の「変数名:awxホストのIPアドレス」を記載するといける
-```
----
-ansible_host: 192.168.10.9
-ansible_python_interpreter: /usr/bin/python3 # これはおまけ
-
-```
+![スクリーンショット 2020-10-12 23 46 19](https://user-images.githubusercontent.com/59173102/95760385-ec833d00-0ce5-11eb-9f7b-c2b1a2f4face.png)
