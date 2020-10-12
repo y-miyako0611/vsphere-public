@@ -1,7 +1,7 @@
 ---
 - name: Tag Control for VM
   gather_facts: no
-  hosts: 192.168.10.10
+  hosts: awx
   tasks:
     - name: Manage VM Tag test
       vmware_tag_manager:
@@ -14,7 +14,7 @@
         object_name: "{{ vmname }}"
         object_type: VirtualMachine
         state: "{{ tag_state }}"
-      delegate_to: 192.168.10.10
+      delegate_to: awx
 
       register: vm_info
       
