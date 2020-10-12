@@ -15,3 +15,11 @@
 awxよくわからんが「localhost」を指定するとawx(docker)でプレイブック実行している？ので、  
 ここで動作しているansible/もしくはpythonのバージョンに依存したりするのかと。  
 なのでhostsにはホストサーバのIPを直接指定すれば問題なく動作した。
+### その後追加
+localhostでもいける方法について。awxインベントリツリー内の「変数名:awxホストのIPアドレス」を記載するといける
+```
+---
+ansible_host: 192.168.10.9
+ansible_python_interpreter: /usr/bin/python3 # これはおまけ
+
+```
