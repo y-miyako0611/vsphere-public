@@ -1,6 +1,6 @@
 ---
 - name: Tag Control for VM
-  hosts: localhost
+  hosts: ansible_host
   gather_facts: no
   tasks:
     - name: Manage VM Tag test
@@ -14,7 +14,7 @@
         object_name: "{{ vmname }}"
         object_type: VirtualMachine
         state: "{{ tag_state }}"
-      delegate_to: localhost
+      delegate_to: ansible_host
       register: vm_info
       
     - debug:
