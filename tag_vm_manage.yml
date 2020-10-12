@@ -1,6 +1,6 @@
 ---
 - name: Tag Control for VM
-  hosts: 192.168.10.9 
+  hosts: localhost
   gather_facts: no
   tasks:
     - name: Manage VM Tag test
@@ -14,7 +14,7 @@
         object_name: "{{ vmname }}"
         object_type: VirtualMachine
         state: "{{ tag_state }}"
-      delegate_to: 192.168.10.9
+      delegate_to: localhost
       register: vm_info
       
     - debug:
