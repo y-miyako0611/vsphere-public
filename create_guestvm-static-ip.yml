@@ -11,9 +11,7 @@
       password: "{{lookup('env', 'VMWARE_PASSWORD')}}"
       datacenter: "{{ datacenter_name }}"
       folder: "{{ foloder_name }}"
-      validate_certs: false
       template: "{{ template_name }}"
-      state: poweredon
       esxi_hostname: "{{ esxi_hostname }}"
       disk:
       - size_gb: 20
@@ -31,11 +29,9 @@
         netmask: "{{ netmask }}"
         gateway: "{{ gateway }}"
         dns_servers: "{{ dns_address }}"
-      wait_for_ip_address: yes
       customization:
-        hostname: "{{ vm_hostname }}"
+        hostname: "{{ vm_hostname }}"        
+      state: poweredon
+      validate_certs: false
+      wait_for_ip_address: yes
     delegate_to: localhost
-    register: vm_info
-
-  - debug:
-      var: vm_info
