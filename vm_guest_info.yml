@@ -11,6 +11,7 @@
         datacenter: "{{ datacenter_name }}"
         folder: "{{ foloder_name }}"
         name: "{{ vm_name }}"
+        tags: yes
         validate_certs: False
       delegate_to: localhost
       register: vm_info
